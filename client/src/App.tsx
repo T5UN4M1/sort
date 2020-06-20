@@ -1,7 +1,7 @@
 import React from 'react';
 import "./style.scss";
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
-import {Sorter} from "./Sorter";
+import {Sorter} from "./components/Sorter";
 function App() {
   return (
       <>
