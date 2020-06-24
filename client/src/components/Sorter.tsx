@@ -14,11 +14,11 @@ export const Sorter = () => {
                 let arr = selectionSort(numbers,step);
                 setData(convertRawData(arr));
                 if(step < numbers.length-1) {
-                    setTimeout(nextStep,100,arr,++step);
+                    setTimeout(nextStep,25,arr,++step);
                 }
             };
             setData(convertRawData(numbers.data));
-            setTimeout(nextStep,100,numbers.data,0)
+            setTimeout(nextStep,25,numbers.data,0)
         });
     },[]);
     return (
