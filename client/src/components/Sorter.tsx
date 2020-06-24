@@ -6,6 +6,7 @@ import {selectionSort} from "../services/sort-algorithms/selection-sort";
 export const Sorter = () => {
     const initialData: object[] = [];
     const [data, setData] = useState(initialData);
+    const DELAY = 25;
 
     useEffect(() => {
         getRandomlySortedNumbers(100).then(numbers => {
@@ -14,19 +15,26 @@ export const Sorter = () => {
                 const arr = selectionSort(numbers, step);
                 setData(convertRawData(arr));
                 if (step < numbers.length - 1) {
-                    setTimeout(nextStep, 25, arr, ++step);
+                    setTimeout(nextStep, DELAY, arr, ++step);
                 }
             };
             setData(convertRawData(numbers.data));
-            setTimeout(nextStep, 25, numbers.data, 0);
+            setTimeout(nextStep, DELAY, numbers.data, 0);
         });
     }, []);
+
+    const CustomTooltip = (props: any) =>
+        props.active ? (
+            <div className="tooltip">
+                Value : {props.payload[0].value}
+            </div>
+        ) : null;
+
     return (
         <div>
             <BarChart width={1890} height={998} data={data}>
-                <Tooltip/>
+                <Tooltip content={<CustomTooltip/>}/>
                 <Bar dataKey="uv" fill="#fff"/>
-
             </BarChart>
         </div>
     );
