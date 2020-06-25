@@ -1,7 +1,11 @@
 import React from "react";
 
-export const RadioField = ({name, label, onChange, value}: any) => (
-    <div>
-        <input type="radio" name={name} id={value} onChange={onChange} value={value}/><label>{label}</label>
-    </div>
+export const RadioFields = ({name, onChange, values}: any) => (
+    <>
+        {values.map((value: string, i: number) =>
+            <div key={i}>
+                <input type="radio" name={name} id={value.toLowerCase().replace(' ', '-')} onChange={onChange} value={value.toLowerCase().replace(' ', '-')}/><label htmlFor={value.toLowerCase().replace(' ', '-')}>{value}</label>
+            </div>
+        )}
+    </>
 );
