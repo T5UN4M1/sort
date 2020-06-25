@@ -1,46 +1,29 @@
 import React from "react";
 import {NumberField} from "./NumberField";
-import {RadioField} from "./RadioField";
+import {RadiosFields} from "./RadiosFields";
 import {Select} from "./Select";
-import {OptionField} from "./Option";
-
 
 const onChange = () => {
-
 };
 
 const onChangeRadio = () => {
-
 };
 
 const onClick = () => {
-
 };
 
+const radios = ["Random", "Almost sorted", "Inverted sort"];
 
-const sortAlgorithms = [
-    {name: 'selection', label: 'Selection'}
-];
+const options = ["Insertion", "Other"];
 
-const numbersConfigurations = [
-    {name: 'random', label: 'Randomly sorted'},
-    {name: 'almost-sorted', label: 'Almost sorted'},
-    {name: 'inverted-sort', label: 'Inverted sort'}
-];
-const options = () => (
-    <OptionField value="insertion">Insertion</OptionField>
-);
-
-export const Form = () => (
-    <form method="post" action="#">
-        <NumberField name="quantity" label="quantity" onChange={onChange} value={null} min={50} max={500}/>
-        <p>Initial configuration</p>
-        <RadioField name="initial-numbers-configuration" id="random" onChange={onChangeRadio} value="random"/>
-        <RadioField name="initial-numbers-configuration" id="almost-sorted" onChange={onChangeRadio}
-                    value="almost-sorted"/>
-        <RadioField name="initial-numbers-configuration" id="inverted-sort" onChange={onChangeRadio}
-                    value="inverted-sort"/>
-        <Select name="algorithm" label="Algorithm" option={options}/>
+export const SortParamsForm = () => (
+    <form method="post" action="#" style={{marginTop: "30px"}}>
+        <NumberField name="quantity" label="Quantity " onChange={onChange} value="" min={50} max={500}/>
+        <p style={{marginBottom: 0}}>Initial configuration</p>
+        <RadioFields name="initial-numbers-configuration" onChange={onChangeRadio} values={radios}/>
+        <div style={{margin: "20px 0"}}>
+            <Select name="algorithm" label="Algorithm" options={options}/>
+        </div>
         <button type="submit" onClick={onClick}>Send</button>
     </form>
 );
