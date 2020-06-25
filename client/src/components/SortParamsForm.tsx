@@ -14,7 +14,7 @@ const onClick = () => {
 
 const radios = ["Random", "Almost sorted", "Inverted sort"];
 
-const options = ["Insertion", "Other"];
+const options = ["Selection"];
 
 export const SortParamsForm = () => (
     <form method="post" action="#" style={{marginTop: "30px"}}>
@@ -24,6 +24,7 @@ export const SortParamsForm = () => (
         <div style={{margin: "20px 0"}}>
             <Select name="algorithm" label="Algorithm" options={options}/>
         </div>
+        <NumberField name="delay" label="Delay between changes (ms)" onChange={onChange} value="" min={0} max={1000}/>
         <button type="submit" onClick={onClick}>Send</button>
     </form>
 );
