@@ -1,6 +1,6 @@
 import React from "react";
 import {NumberField} from "./NumberField";
-import {RadiosFields} from "./RadiosFields";
+import {RadioFields} from "./RadioFields";
 import {Select} from "./Select";
 
 const onChange = () => {
